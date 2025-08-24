@@ -15,10 +15,9 @@ import (
 
 const (
 	maxDuration = 1 * time.Second
-
 	tryInterval = 1 * time.Second
 
-	targetChance = 0.005
+	targetChance = 0.01
 
 	runCommand string = "scream"
 )
