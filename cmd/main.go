@@ -5,6 +5,7 @@ import (
 	"math/rand/v2"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
@@ -13,11 +14,11 @@ import (
 )
 
 const (
-	maxDuration = 2 * time.Second
+	maxDuration = 1 * time.Second
 
 	tryInterval = 1 * time.Second
 
-	targetChance = 0.9
+	targetChance = 0.005
 
 	runCommand string = "scream"
 )
@@ -41,7 +42,9 @@ func main() {
 		fmt.Printf("try: %v, target: %v\n", try, targetChance)
 
 		if try <= targetChance {
-			cmd := exec.Command(os.Args[0], runCommand)
+			fp, _ := filepath.Abs(os.Args[0])
+
+			cmd := exec.Command(fp, runCommand)
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
 

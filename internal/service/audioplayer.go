@@ -29,7 +29,7 @@ func PlayScream() error {
 		return err
 	}
 
-	p.SetVolume(0.5)
+	p.SetVolume(0.1)
 	p.Play()
 
 	return nil

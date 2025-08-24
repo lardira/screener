@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/hajimehoshi/ebiten/v2"
-	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 	"github.com/lardira/screener/internal/errors"
 )
 
@@ -48,12 +47,11 @@ func (s *Screener) Update() error {
 }
 
 func (s *Screener) Draw(screen *ebiten.Image) {
-
-	ebitenutil.DebugPrint(screen, "Hello, World!")
+	screen.DrawImage(Img, nil)
 }
 
 func (s *Screener) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
-	return 100, 100
+	return Img.Bounds().Dx(), Img.Bounds().Dy()
 }
 
 func (s *Screener) Run() {
