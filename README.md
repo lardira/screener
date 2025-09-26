@@ -1,2 +1,2 @@
 # screener
-An overlay that randomly popsup with a random screemer
+An overlay that randomly pops up with an embedded random screamer
